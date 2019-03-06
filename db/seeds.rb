@@ -10,3 +10,14 @@ Borough.create(name: "Brooklyn")
 Borough.create(name: "Manhattan")
 Borough.create(name: "Queens")
 Borough.create(name: "Staten Island")
+
+Location.delete_all
+
+hikingJson = ActiveSupport::JSON.decode(File.read('nycOpenData/dprHiking001.json'))
+
+hikingJson.map do|attribute|
+  Location.create!
+  ({name: "attribute.name",
+   address: "attribute.location",
+   description: "attribute.other_details"})
+end
