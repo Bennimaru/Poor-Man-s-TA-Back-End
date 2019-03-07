@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create]
   resources :locations, only: [:index, :show, :create]
   resources :reviews, only: [:index, :show, :create]
-  resources :boroughs, only: [:index]
+  resources :boroughs, only: [:index, :show]
 end
