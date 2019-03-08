@@ -14,6 +14,12 @@ class LocationsController < ApplicationController
     render json: @location
   end
 
+  def edit
+    @location = Location.find(params[:id])
+    @location.update(location_params)
+    render json: @location
+  end
+
   private
   def location_params
   params.permit(:name, :image, :address, :description, :borough_id)
