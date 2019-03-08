@@ -14,11 +14,13 @@ class LocationsController < ApplicationController
     render json: @location
   end
 
-  def edit
+  def update
     @location = Location.find(params[:id])
     @location.update(location_params)
     render json: @location
   end
+
+
 
   private
   def location_params
