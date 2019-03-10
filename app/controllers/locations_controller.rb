@@ -20,7 +20,10 @@ class LocationsController < ApplicationController
     render json: @location
   end
 
-
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+  end
 
   private
   def location_params
